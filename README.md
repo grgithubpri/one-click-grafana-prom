@@ -143,7 +143,7 @@ cd one-click-grafana-prom
 2️⃣ Initialize Terraform
 terraform init
 3️⃣ Deploy
-terraform apply -var="ssh_public_key=$(cat ~/.ssh/id_ed25519.pub)"
+terraform apply -var="ssh_public_key=$(cat ~/.ssh/id_your_key.pub)"
 4️⃣ Access Services
 
 After deployment:
