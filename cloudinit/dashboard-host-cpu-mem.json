@@ -1,0 +1,34 @@
+{
+  "uid": "aws-host-cpu-mem",
+  "title": "EC2 Host Monitoring (CPU & Memory)",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "10s",
+  "time": { "from": "now-30m", "to": "now" },
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Host CPU Usage (%)",
+      "gridPos": { "h": 9, "w": 24, "x": 0, "y": 0 },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "100 * (1 - avg(rate(node_cpu_seconds_total{mode=\"idle\"}[5m])))",
+          "legendFormat": "CPU"
+        }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Host Memory Usage (%)",
+      "gridPos": { "h": 9, "w": 24, "x": 0, "y": 9 },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "100 * (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes))",
+          "legendFormat": "Memory"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+apiVersion: 1
+
+%{ if enable_email ~}
+contactPoints:
+  - orgId: 1
+    name: email-contact
+    receivers:
+      - uid: email-receiver
+        type: email
+        settings:
+          addresses: ${email_to}
+%{ else ~}
+contactPoints: []
+%{ endif ~}

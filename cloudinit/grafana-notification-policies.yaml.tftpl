@@ -1,0 +1,10 @@
+apiVersion: 1
+
+%{ if enable_email ~}
+policies:
+  - orgId: 1
+    receiver: email-contact
+    group_by: ["alertname"]
+%{ else ~}
+policies: []
+%{ endif ~}
