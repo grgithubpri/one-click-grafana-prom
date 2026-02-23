@@ -144,6 +144,19 @@ cd one-click-grafana-prom
 terraform init
 3️⃣ Deploy
 terraform apply -var="ssh_public_key=$(cat ~/.ssh/id_your_key.pub)"
+
+Optional email notifications
+
+terraform apply \
+  -var="ssh_public_key=$(cat ~/.ssh/id_ed25519.pub)" \
+  -var="enable_email_contact_point=true" \
+  -var="alert_email_to=you@example.com" \
+  -var="smtp_host=smtp.example.com:587" \
+  -var="smtp_user=your_user" \
+  -var="smtp_password=your_password" \
+  -var="smtp_from_address=alerts@example.com"
+
+
 4️⃣ Access Services
 
 After deployment:
