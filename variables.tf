@@ -10,8 +10,8 @@ variable "project_name" {
 
 variable "instance_type" {
   type        = string
-  default     = "t3.micro" # Free Tier friendly
-  description = "Use t3.micro (or t2.micro where available) for Free Tier. t3.small is not Free Tier."
+  default     = "t3.micro"
+  description = "Use t3.micro for Free Tier friendly EC2. t3.small is not Free Tier eligible."
 }
 
 variable "ssh_public_key" {
